@@ -1,0 +1,26 @@
+{
+  "name": "geniv/nette-form",
+  "description": "Form extension for Nette Framework",
+  "keywords": [
+    "nette",
+    "form",
+    "html5",
+    "geniv"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Radek Fryšták",
+      "email": "geniv.radek@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "nette/nette": ">=2.4.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  }
+}
