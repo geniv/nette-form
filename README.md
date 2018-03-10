@@ -14,6 +14,7 @@ html5 elements:
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color
 
 Installation
 ------------
@@ -51,4 +52,5 @@ $form->addMonth('name', 'label');
 $form->addSearch('name', 'label');
 $form->addNumber('name', 'label');
 $form->addRange('name', 'label');
+$form->addColor('name', 'label');
 ```

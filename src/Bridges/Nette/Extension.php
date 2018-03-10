@@ -2,6 +2,7 @@
 
 namespace Form\Bridges\Nette;
 
+use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
 use Form\MonthInput;
@@ -72,6 +73,10 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addRange', function (Container $container, $name, $label = null) {
             return $container[$name] = new RangeInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addColor', function (Container $container, $name, $label = null) {
+            return $container[$name] = new ColorInput($label);
         });
     }
 }
