@@ -24,4 +24,43 @@ class NumberInput extends TextBase
         parent::__construct($caption);
         $this->control->type = 'number';
     }
+
+
+    /**
+     * Set step.
+     *
+     * @param $step
+     * @return NumberInput
+     */
+    public function setStep($step): self
+    {
+        $this->control->step = $step;
+        return $this;
+    }
+
+
+    /**
+     * Set min.
+     *
+     * @param $min
+     * @return NumberInput
+     */
+    public function setMin($min): self
+    {
+        $this->control->min = $min;
+        return $this;
+    }
+
+
+    /**
+     * Set max.
+     *
+     * @param $max
+     * @return NumberInput
+     */
+    public function setMax($max): self
+    {
+        $this->control->max = $max;
+        return $this;
+    }
 }
