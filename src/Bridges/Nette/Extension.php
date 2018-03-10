@@ -4,7 +4,12 @@ namespace Form\Bridges\Nette;
 
 use Form\DateInput;
 use Form\DateTimeInput;
+use Form\MonthInput;
+use Form\NumberInput;
+use Form\RangeInput;
+use Form\SearchInput;
 use Form\TimeInput;
+use Form\WeekInput;
 use Nette\DI\CompilerExtension;
 use Nette\Forms\Container;
 use Nette\PhpGenerator\ClassType;
@@ -47,6 +52,26 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addDateTime', function (Container $container, $name, $label = null) {
             return $container[$name] = new DateTimeInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addWeek', function (Container $container, $name, $label = null) {
+            return $container[$name] = new WeekInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addMonth', function (Container $container, $name, $label = null) {
+            return $container[$name] = new MonthInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addSearch', function (Container $container, $name, $label = null) {
+            return $container[$name] = new SearchInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addNumber', function (Container $container, $name, $label = null) {
+            return $container[$name] = new NumberInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addRange', function (Container $container, $name, $label = null) {
+            return $container[$name] = new RangeInput($label);
         });
     }
 }
