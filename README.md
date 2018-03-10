@@ -9,6 +9,12 @@ html5 elements:
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local
 - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/week
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/month
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/color
 
 Installation
 ------------
@@ -41,4 +47,10 @@ presenters:
 $form->addDate('name', 'label');
 $form->addTime('name', 'label');
 $form->addDateTime('name', 'label');
+$form->addWeek('name', 'label');
+$form->addMonth('name', 'label');
+$form->addSearch('name', 'label');
+$form->addNumber('name', 'label');
+$form->addRange('name', 'label');
+$form->addColor('name', 'label');
 ```
