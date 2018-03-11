@@ -2,7 +2,9 @@
 
 namespace Form;
 
+use DateTime;
 use Nette\Forms\Controls\TextBase;
+use Nette\Forms\Form;
 
 
 /**
@@ -23,5 +25,31 @@ class DateTimeInput extends TextBase
     {
         parent::__construct($caption);
         $this->control->type = 'datetime-local';
+    }
+
+
+    /**
+     * Load http data.
+     */
+    public function loadHttpData()
+    {
+        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
+    }
+
+
+    /**
+     * Set value.
+     *
+     * @param $value
+     * @return $this|static
+     */
+    public function setValue($value)
+    {
+        if ($value instanceof DateTime) {
+            $this->control->value = $value->format('Y-m-d\TH:i');
+        } else {
+            $this->control->value = $value;
+        }
+        return $this;
     }
 }
