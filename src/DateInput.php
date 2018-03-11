@@ -33,7 +33,7 @@ class DateInput extends TextBase
      */
     public function loadHttpData()
     {
-        $this->value = $this->getHttpData(Form::DATA_TEXT);
+        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
     }
 
 
