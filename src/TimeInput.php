@@ -19,9 +19,9 @@ class TimeInput extends TextBase
     /**
      * TimeInput constructor.
      *
-     * @param string|null $caption
+     * @param null $caption
      */
-    public function __construct(string $caption = null)
+    public function __construct($caption = null)
     {
         parent::__construct($caption);
         $this->control->type = 'time';
@@ -41,9 +41,9 @@ class TimeInput extends TextBase
      * Set value.
      *
      * @param $value
-     * @return $this|static
+     * @return TimeInput
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         if ($value instanceof DateTime) {
             $this->control->value = $value->format('H:i');

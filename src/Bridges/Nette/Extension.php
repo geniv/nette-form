@@ -5,11 +5,15 @@ namespace Form\Bridges\Nette;
 use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
+use Form\HrefInput;
+use Form\ImageElement;
 use Form\MonthInput;
 use Form\NumberInput;
 use Form\RangeInput;
 use Form\SearchInput;
 use Form\TimeInput;
+use Form\UploadFileControl;
+use Form\UploadImageControl;
 use Form\WeekInput;
 use Nette\DI\CompilerExtension;
 use Nette\Forms\Container;
@@ -77,6 +81,22 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addColor', function (Container $container, $name, $label = null) {
             return $container[$name] = new ColorInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addImg', function (Container $container, $name, $label = null) {
+            return $container[$name] = new ImageElement($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addUploadImage', function (Container $container, $name, $label = null, $multiple = false) {
+            return $container[$name] = new UploadImageControl($label, $multiple);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addUploadFile', function (Container $container, $name, $label = null, $multiple = false) {
+            return $container[$name] = new UploadFileControl($label, $multiple);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addHref', function (Container $container, $name, $label = null) {
+            return $container[$name] = new HrefInput($label);
         });
     }
 }
