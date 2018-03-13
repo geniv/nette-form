@@ -19,9 +19,9 @@ class WeekInput extends TextBase
     /**
      * WeekInput constructor.
      *
-     * @param string|null $caption
+     * @param null $caption
      */
-    public function __construct(string $caption = null)
+    public function __construct($caption = null)
     {
         parent::__construct($caption);
         $this->control->type = 'week';
@@ -41,9 +41,9 @@ class WeekInput extends TextBase
      * Set value.
      *
      * @param $value
-     * @return $this|static
+     * @return WeekInput
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         if ($value instanceof DateTime) {
             $this->control->value = $value->format('Y-\WW');

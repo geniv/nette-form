@@ -20,8 +20,10 @@ class UploadImageControl extends UploadControl
 
 
     /**
-     * @param  string|object
-     * @param  bool
+     * UploadImageControl constructor.
+     *
+     * @param null $label
+     * @param bool $multiple
      */
     public function __construct($label = null, $multiple = false)
     {
@@ -36,7 +38,14 @@ class UploadImageControl extends UploadControl
     }
 
 
-    public function setPath(string $path, $defaultPath = null)
+    /**
+     * Set path.
+     *
+     * @param string $path
+     * @param null   $defaultPath
+     * @return UploadImageControl
+     */
+    public function setPath(string $path, $defaultPath = null): self
     {
         $this->path = $path;
         $this->defaultPath = $defaultPath;
@@ -44,7 +53,14 @@ class UploadImageControl extends UploadControl
     }
 
 
-    public function setImageSize($height, $width)
+    /**
+     * Set image size.
+     *
+     * @param $height
+     * @param $width
+     * @return UploadImageControl
+     */
+    public function setImageSize($height, $width): self
     {
         $this->height = $height;
         $this->width = $width;
@@ -53,11 +69,13 @@ class UploadImageControl extends UploadControl
 
 
     /**
+     * Set value.
+     *
      * @param $value
-     * @return void|static
+     * @return UploadImageControl
      * @throws \Nette\Utils\UnknownImageFileException
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         if ($this->htmlImage) {
             $this->htmlImage->src = ($value ? $this->path . $value : $this->defaultPath);
@@ -68,5 +86,6 @@ class UploadImageControl extends UploadControl
                 $this->htmlImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
             }
         }
+        return $this;
     }
 }

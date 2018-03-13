@@ -53,7 +53,9 @@ $form->addSearch($name, $label = null);
 $form->addNumber($name, $label = null);
 $form->addRange($name, $label = null);
 $form->addColor($name, $label = null);
+
 $form->addImg($name, $label = null);
 $form->addUploadImage($name, $label = null, $multiple = false);
 $form->addUploadFile($name, $label = null, $multiple = false);
+$form->addHref($name, $label = null);
 ```

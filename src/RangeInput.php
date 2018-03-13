@@ -18,9 +18,9 @@ class RangeInput extends TextBase
     /**
      * RangeInput constructor.
      *
-     * @param string|null $caption
+     * @param null $caption
      */
-    public function __construct(string $caption = null)
+    public function __construct($caption = null)
     {
         parent::__construct($caption);
         $this->control->type = 'range';
@@ -40,9 +40,9 @@ class RangeInput extends TextBase
      * Set value.
      *
      * @param $value
-     * @return $this|static
+     * @return RangeInput
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         $this->control->value = $value;
         return $this;

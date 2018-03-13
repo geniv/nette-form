@@ -21,7 +21,7 @@ class DateTimeInput extends TextBase
      *
      * @param string|null $caption
      */
-    public function __construct(string $caption = null)
+    public function __construct($caption = null)
     {
         parent::__construct($caption);
         $this->control->type = 'datetime-local';
@@ -41,9 +41,9 @@ class DateTimeInput extends TextBase
      * Set value.
      *
      * @param $value
-     * @return $this|static
+     * @return DateTimeInput
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         if ($value instanceof DateTime) {
             $this->control->value = $value->format('Y-m-d\TH:i');

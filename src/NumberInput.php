@@ -18,9 +18,9 @@ class NumberInput extends TextBase
     /**
      * NumberInput constructor.
      *
-     * @param string|null $caption
+     * @param null $caption
      */
-    public function __construct(string $caption = null)
+    public function __construct($caption = null)
     {
         parent::__construct($caption);
         $this->control->type = 'number';
@@ -40,9 +40,9 @@ class NumberInput extends TextBase
      * Set value.
      *
      * @param $value
-     * @return $this|static
+     * @return NumberInput
      */
-    public function setValue($value)
+    public function setValue($value): self
     {
         $this->control->value = $value;
         return $this;

@@ -14,8 +14,10 @@ use Nette\Utils\Html;
  */
 class UploadFileControl extends UploadControl
 {
+    /** @var Html */
     private $htmlHref;
-    private $height, $width, $path;
+    /** @var string */
+    private $path;
 
 
     /**
@@ -37,26 +39,31 @@ class UploadFileControl extends UploadControl
     }
 
 
-    public function setPath($path)
+    /**
+     * Set path.
+     *
+     * @param string $path
+     * @return UploadFileControl
+     */
+    public function setPath(string $path): self
     {
         $this->path = $path;
         return $this;
     }
 
 
-    public function setImageSize($height, $width)
-    {
-        $this->height = $height;
-        $this->width = $width;
-        return $this;
-    }
-
-
-    public function setValue($value)
+    /**
+     * Set value.
+     *
+     * @param $value
+     * @return UploadFileControl
+     */
+    public function setValue($value): self
     {
         if ($this->htmlHref) {
             $this->htmlHref->href = ($value ? $this->path . $value : null);
             $this->htmlHref->setText($value);
         }
+        return $this;
     }
 }

@@ -31,23 +31,42 @@ class HrefInput extends BaseControl
     }
 
 
-    public function setPrefix(string $prefix)
+    /**
+     * Set prefix.
+     *
+     * @param string $prefix
+     * @return HrefInput
+     */
+    public function setPrefix(string $prefix): self
     {
         $this->prefix = $prefix;
         return $this;
     }
 
 
-    public function setText(string $text)
+    /**
+     * Set text.
+     *
+     * @param string $text
+     * @return HrefInput
+     */
+    public function setText(string $text): self
     {
         $this->text = $text;
         return $this;
     }
 
 
-    public function setValue($value)
+    /**
+     * Set value.
+     *
+     * @param $value
+     * @return HrefInput
+     */
+    public function setValue($value): self
     {
         $this->control->href = ($this->prefix ?: null) . $value;
         $this->control->setText($this->text ?: $value);
+        return $this;
     }
 }
