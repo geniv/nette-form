@@ -15,7 +15,7 @@ use Nette\Utils\Image;
  */
 class UploadImageControl extends UploadControl
 {
-    private $hmltImage;
+    private $htmlImage;
     private $height, $width, $path, $defaultPath;
 
 
@@ -27,10 +27,10 @@ class UploadImageControl extends UploadControl
     {
         parent::__construct($label, $multiple);
 
-        $this->hmltImage = Html::el('img', ['src' => null]);
+        $this->htmlImage = Html::el('img', ['src' => null]);
 
         $div = Html::el('div');
-        $div->addHtml($this->hmltImage);
+        $div->addHtml($this->htmlImage);
 
         $this->setOption('description', $div);
     }
@@ -59,13 +59,13 @@ class UploadImageControl extends UploadControl
      */
     public function setValue($value)
     {
-        if ($this->hmltImage) {
-            $this->hmltImage->src = ($value ? $this->path . $value : $this->defaultPath);
+        if ($this->htmlImage) {
+            $this->htmlImage->src = ($value ? $this->path . $value : $this->defaultPath);
 
             if ($value) {
                 $img = Image::fromFile($this->path . $value);
                 $img->resize($this->width, $this->height);
-                $this->hmltImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
+                $this->htmlImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
             }
         }
     }

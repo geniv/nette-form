@@ -11,6 +11,7 @@ use Form\NumberInput;
 use Form\RangeInput;
 use Form\SearchInput;
 use Form\TimeInput;
+use Form\UploadFileControl;
 use Form\UploadImageControl;
 use Form\WeekInput;
 use Nette\DI\CompilerExtension;
@@ -87,6 +88,10 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addUploadImage', function (Container $container, $name, $label = null, $multiple = false) {
             return $container[$name] = new UploadImageControl($label, $multiple);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addUploadFile', function (Container $container, $name, $label = null, $multiple = false) {
+            return $container[$name] = new UploadFileControl($label, $multiple);
         });
     }
 }
