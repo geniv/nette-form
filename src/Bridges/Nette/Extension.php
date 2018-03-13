@@ -5,6 +5,7 @@ namespace Form\Bridges\Nette;
 use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
+use Form\HrefInput;
 use Form\ImageElement;
 use Form\MonthInput;
 use Form\NumberInput;
@@ -92,6 +93,10 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addUploadFile', function (Container $container, $name, $label = null, $multiple = false) {
             return $container[$name] = new UploadFileControl($label, $multiple);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addHref', function (Container $container, $name, $label = null) {
+            return $container[$name] = new HrefInput($label);
         });
     }
 }
