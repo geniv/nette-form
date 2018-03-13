@@ -44,13 +44,15 @@ extensions:
 
 presenters:
 ```php
-$form->addDate('name', 'label');
-$form->addTime('name', 'label');
-$form->addDateTime('name', 'label');
-$form->addWeek('name', 'label');
-$form->addMonth('name', 'label');
-$form->addSearch('name', 'label');
-$form->addNumber('name', 'label');
-$form->addRange('name', 'label');
-$form->addColor('name', 'label');
+$form->addDate($name, $label = null);
+$form->addTime($name, $label = null);
+$form->addDateTime($name, $label = null);
+$form->addWeek($name, $label = null);
+$form->addMonth($name, $label = null);
+$form->addSearch($name, $label = null);
+$form->addNumber($name, $label = null);
+$form->addRange($name, $label = null);
+$form->addColor($name, $label = null);
+$form->addImg($name, $label = null);
+$form->addUploadImage($name, $label = null, $multiple = false);
 ```
