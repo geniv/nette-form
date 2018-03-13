@@ -8,19 +8,19 @@ use Nette\Utils\Image;
 
 
 /**
- * Class ImageElement
+ * Class ImageControl
  *
  * @author  geniv
  * @package Form
  */
-class ImageElement extends BaseControl
+class ImageControl extends BaseControl
 {
     /** @var string */
     private $path, $defaultPath;
 
 
     /**
-     * ImageElement constructor.
+     * ImageControl constructor.
      *
      * @param null $caption
      */
@@ -37,7 +37,7 @@ class ImageElement extends BaseControl
      *
      * @param string $path
      * @param null   $defaultPath
-     * @return ImageElement
+     * @return ImageControl
      */
     public function setPath(string $path, $defaultPath = null): self
     {
@@ -52,7 +52,7 @@ class ImageElement extends BaseControl
      *
      * @param $height
      * @param $width
-     * @return ImageElement
+     * @return ImageControl
      */
     public function setImageSize($height, $width): self
     {
@@ -66,7 +66,7 @@ class ImageElement extends BaseControl
      * Set value.
      *
      * @param $value
-     * @return ImageElement
+     * @return ImageControl
      * @throws \Nette\Utils\UnknownImageFileException
      */
     public function setValue($value): self
@@ -74,6 +74,7 @@ class ImageElement extends BaseControl
         $this->control->src = ($value ? $this->path . $value : $this->defaultPath);
 
         if ($value) {
+            //TODO mohlo by ukladat do filesystemu a nacitat pak zpetne jako cisty obrazek
             $img = Image::fromFile($this->path . $value);
             $img->resize($this->width, $this->height);
             $this->hmltImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
