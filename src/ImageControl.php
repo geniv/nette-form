@@ -73,7 +73,7 @@ class ImageControl extends BaseControl
     {
         $this->control->src = ($value ? $this->path . $value : $this->defaultPath);
 
-        if ($value) {
+        if ($value && file_exists($this->path . $value)) {
             //TODO mohlo by ukladat do filesystemu a nacitat pak zpetne jako cisty obrazek
             $img = Image::fromFile($this->path . $value);
             $img->resize($this->width, $this->height);
