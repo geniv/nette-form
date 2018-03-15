@@ -6,7 +6,7 @@ use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
 use Form\HrefInput;
-use Form\ImageElement;
+use Form\ImageControl;
 use Form\MonthInput;
 use Form\NumberInput;
 use Form\RangeInput;
@@ -84,7 +84,7 @@ class Extension extends CompilerExtension
         });
 
         ObjectMixin::setExtensionMethod(Container::class, 'addImg', function (Container $container, $name, $label = null) {
-            return $container[$name] = new ImageElement($label);
+            return $container[$name] = new ImageControl($label);
         });
 
         ObjectMixin::setExtensionMethod(Container::class, 'addUploadImage', function (Container $container, $name, $label = null, $multiple = false) {
