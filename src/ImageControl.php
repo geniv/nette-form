@@ -4,7 +4,7 @@ namespace Form;
 
 use Nette\Forms\Controls\BaseControl;
 use Nette\Utils\Html;
-use Nette\Utils\Image;
+use Thumbnail\Thumbnail;
 
 
 /**
@@ -16,7 +16,7 @@ use Nette\Utils\Image;
 class ImageControl extends BaseControl
 {
     /** @var string */
-    private $path, $defaultPath;
+    private $path, $height, $width;
 
 
     /**
@@ -36,13 +36,11 @@ class ImageControl extends BaseControl
      * Set path.
      *
      * @param string $path
-     * @param null   $defaultPath
      * @return ImageControl
      */
-    public function setPath(string $path, $defaultPath = null): self
+    public function setPath(string $path): self
     {
         $this->path = $path;
-        $this->defaultPath = $defaultPath;
         return $this;
     }
 
@@ -50,11 +48,11 @@ class ImageControl extends BaseControl
     /**
      * Set image size.
      *
-     * @param $height
-     * @param $width
+     * @param string|null $height
+     * @param string|null $width
      * @return ImageControl
      */
-    public function setImageSize($height, $width): self
+    public function setImageSize(string $height = null, string $width = null): self
     {
         $this->height = $height;
         $this->width = $width;
@@ -67,18 +65,11 @@ class ImageControl extends BaseControl
      *
      * @param $value
      * @return ImageControl
-     * @throws \Nette\Utils\UnknownImageFileException
+     * @throws \Exception
      */
     public function setValue($value): self
     {
-        $this->control->src = ($value ? $this->path . $value : $this->defaultPath);
-
-        if ($value && file_exists($this->path . $value)) {
-            //TODO mohlo by ukladat do filesystemu a nacitat pak zpetne jako cisty obrazek
-            $img = Image::fromFile($this->path . $value);
-            $img->resize($this->width, $this->height);
-            $this->hmltImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
-        }
+        $this->control->src = Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height);
         return $this;
     }
 }

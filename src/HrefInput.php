@@ -58,6 +58,32 @@ class HrefInput extends BaseControl
 
 
     /**
+     * Set href.
+     *
+     * @param string $href
+     * @return HrefInput
+     */
+    public function setHref(string $href): self
+    {
+        $this->control->href = $href;
+        return $this;
+    }
+
+
+    /**
+     * Set confirm.
+     *
+     * @param string $text
+     * @return HrefInput
+     */
+    public function setConfirm(string $text): self
+    {
+        $this->control->onClick('return confirm("' . $text . '");');
+        return $this;
+    }
+
+
+    /**
      * Set value.
      *
      * @param $value
