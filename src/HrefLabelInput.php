@@ -25,6 +25,7 @@ class HrefLabelInput extends BaseControl
         parent::__construct($caption);
 
         $this->label = Html::el('a', ['href' => null]);
+        $this->control = Html::el('span');
         $this->setText($caption);
     }
 
