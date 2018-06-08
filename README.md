@@ -30,7 +30,8 @@ or
 require:
 ```json
 "php": ">=7.0.0",
-"nette/nette": ">=2.4.0"
+"nette/nette": ">=2.4.0",
+"geniv/nette-thumbnail": ">=1.0.0"
 ```
 
 Include in application
@@ -58,4 +59,13 @@ $form->addImg($name, $label = null);
 $form->addUploadImage($name, $label = null, $multiple = false);
 $form->addUploadFile($name, $label = null, $multiple = false);
 $form->addHref($name, $label = null);
+$form->addHrefLabel($name, $label = null);
+$form->addLabel($name, $label = null);
+```
+
+usage for addUploadImage:
+```latte
+{label cover_image /}
+{input cover_image, class=>"form-control"}
+ {$form['cover_image']->getOption('description')}
 ```

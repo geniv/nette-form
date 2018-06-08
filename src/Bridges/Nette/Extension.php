@@ -6,7 +6,9 @@ use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
 use Form\HrefInput;
+use Form\HrefLabelInput;
 use Form\ImageControl;
+use Form\LabelInput;
 use Form\MonthInput;
 use Form\NumberInput;
 use Form\RangeInput;
@@ -97,6 +99,14 @@ class Extension extends CompilerExtension
 
         ObjectMixin::setExtensionMethod(Container::class, 'addHref', function (Container $container, $name, $label = null) {
             return $container[$name] = new HrefInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addHrefLabel', function (Container $container, $name, $label = null) {
+            return $container[$name] = new HrefLabelInput($label);
+        });
+
+        ObjectMixin::setExtensionMethod(Container::class, 'addLabel', function (Container $container, $name, $label = null) {
+            return $container[$name] = new LabelInput($label);
         });
     }
 }

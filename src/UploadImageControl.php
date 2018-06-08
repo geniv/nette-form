@@ -4,7 +4,7 @@ namespace Form;
 
 use Nette\Forms\Controls\UploadControl;
 use Nette\Utils\Html;
-use Nette\Utils\Image;
+use Thumbnail\Thumbnail;
 
 
 /**
@@ -15,8 +15,10 @@ use Nette\Utils\Image;
  */
 class UploadImageControl extends UploadControl
 {
+    /** @var Html */
     private $htmlImage;
-    private $height, $width, $path, $defaultPath;
+    /** @var string */
+    private $path, $height, $width;
 
 
     /**
@@ -42,13 +44,11 @@ class UploadImageControl extends UploadControl
      * Set path.
      *
      * @param string $path
-     * @param null   $defaultPath
      * @return UploadImageControl
      */
-    public function setPath(string $path, $defaultPath = null): self
+    public function setPath(string $path): self
     {
         $this->path = $path;
-        $this->defaultPath = $defaultPath;
         return $this;
     }
 
@@ -56,11 +56,11 @@ class UploadImageControl extends UploadControl
     /**
      * Set image size.
      *
-     * @param $height
-     * @param $width
+     * @param string|null $height
+     * @param string|null $width
      * @return UploadImageControl
      */
-    public function setImageSize($height, $width): self
+    public function setImageSize(string $height = null, string $width = null): self
     {
         $this->height = $height;
         $this->width = $width;
@@ -73,19 +73,12 @@ class UploadImageControl extends UploadControl
      *
      * @param $value
      * @return UploadImageControl
-     * @throws \Nette\Utils\UnknownImageFileException
+     * @throws \Exception
      */
     public function setValue($value): self
     {
         if ($this->htmlImage) {
-            $this->htmlImage->src = ($value ? $this->path . $value : $this->defaultPath);
-
-            if ($value && file_exists($this->path . $value)) {
-                //TODO mohlo by ukladat do filesystemu a nacitat pak zpetne jako cisty obrazek
-                $img = Image::fromFile($this->path . $value);
-                $img->resize($this->width, $this->height);
-                $this->htmlImage->src = 'data:image/jpeg;base64,' . base64_encode($img->toString());
-            }
+            $this->htmlImage->src = Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height);
         }
         return $this;
     }
