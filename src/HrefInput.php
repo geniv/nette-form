@@ -71,6 +71,19 @@ class HrefInput extends BaseControl
 
 
     /**
+     * Set target.
+     *
+     * @param string $target
+     * @return HrefInput
+     */
+    public function setTarget(string $target): self
+    {
+        $this->label->target = $target;
+        return $this;
+    }
+
+
+    /**
      * Set confirm.
      *
      * @param string $text
