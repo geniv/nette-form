@@ -27,6 +27,9 @@ class HrefLabelInput extends BaseControl
         $this->label = Html::el('a', ['href' => null]);
         $this->control = Html::el('span');
         $this->setText($caption);
+
+        // set manual omitted
+        $this->setOmitted(true);
     }
 
 
@@ -52,6 +55,19 @@ class HrefLabelInput extends BaseControl
     public function setHref(string $href): self
     {
         $this->label->href = $href;
+        return $this;
+    }
+
+
+    /**
+     * Set target.
+     *
+     * @param string $target
+     * @return HrefLabelInput
+     */
+    public function setTarget(string $target): self
+    {
+        $this->label->target = $target;
         return $this;
     }
 

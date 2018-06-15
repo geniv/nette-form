@@ -34,7 +34,7 @@ class UploadFileControl extends UploadControl
 
         $div = Html::el('div');
         $div->addHtml($this->htmlHref);
-
+//FIXME duplikuje description
         $this->setOption('description', $div);
     }
 

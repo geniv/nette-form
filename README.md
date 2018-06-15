@@ -55,12 +55,32 @@ $form->addNumber($name, $label = null);
 $form->addRange($name, $label = null);
 $form->addColor($name, $label = null);
 
-$form->addImg($name, $label = null);
-$form->addUploadImage($name, $label = null, $multiple = false);
-$form->addUploadFile($name, $label = null, $multiple = false);
-$form->addHref($name, $label = null);
-$form->addHrefLabel($name, $label = null);
-$form->addLabel($name, $label = null);
+$form->addImg($name, $label = null)
+    ->setPath(string $path)
+    ->setImageSize(string $height = null, string $width = null);
+
+$form->addUploadImage($name, $label = null, $multiple = false)
+    ->setPath(string $path)
+    ->setImageSize(string $height = null, string $width = null);
+
+$form->addUploadFile($name, $label = null, $multiple = false)
+    ->setPath(string $path);
+
+$form->addHref($name, $label = null)
+    ->setPrefix(string $prefix)
+    ->setText(string $text)
+    ->setHref(string $href)
+    ->setTarget(string $target)
+    ->setConfirm(string $text);
+
+$form->addHrefLabel($name, $label = null)
+    ->setText(string $text)
+    ->setHref(string $href)
+    ->setTarget(string $target)
+    ->setConfirm(string $text);
+
+$form->addLabel($name, $label = null)
+    ->setText(string $text);
 ```
 
 usage for addUploadImage:
