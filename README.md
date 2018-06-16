@@ -67,6 +67,7 @@ $form->addUploadImage($name, $label = null, $multiple = false)
 
 $form->addUploadFile($name, $label = null, $multiple = false)
     ->setPath(string $path)
+    ->setTarget(string $target)
     ->setValue($value);
 
 $form->addHref($name, $label = null)
