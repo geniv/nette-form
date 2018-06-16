@@ -15,29 +15,8 @@ use Thumbnail\Thumbnail;
  */
 class UploadImageControl extends UploadControl
 {
-    /** @var Html */
-    private $htmlImage;
     /** @var string */
     private $path, $height, $width;
-
-
-    /**
-     * UploadImageControl constructor.
-     *
-     * @param null $label
-     * @param bool $multiple
-     */
-    public function __construct($label = null, $multiple = false)
-    {
-        parent::__construct($label, $multiple);
-
-        $this->htmlImage = Html::el('img', ['src' => null]);
-
-        $div = Html::el('div');
-        $div->addHtml($this->htmlImage);
-
-        $this->setOption('description', $div);
-    }
 
 
     /**
@@ -77,8 +56,11 @@ class UploadImageControl extends UploadControl
      */
     public function setValue($value): self
     {
-        if ($this->htmlImage) {
-            $this->htmlImage->src = Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height);
+        if ($this->path && $value) {
+            $img = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height)]);
+            $div = Html::el('div');
+            $div->addHtml($img);
+            $this->setOption('description', $div);
         }
         return $this;
     }

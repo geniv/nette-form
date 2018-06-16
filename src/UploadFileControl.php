@@ -14,29 +14,8 @@ use Nette\Utils\Html;
  */
 class UploadFileControl extends UploadControl
 {
-    /** @var Html */
-    private $htmlHref;
     /** @var string */
     private $path;
-
-
-    /**
-     * UploadFileControl constructor.
-     *
-     * @param null $label
-     * @param bool $multiple
-     */
-    public function __construct($label = null, $multiple = false)
-    {
-        parent::__construct($label, $multiple);
-
-        $this->htmlHref = Html::el('a', ['href' => null]);
-
-        $div = Html::el('div');
-        $div->addHtml($this->htmlHref);
-//FIXME duplikuje description
-        $this->setOption('description', $div);
-    }
 
 
     /**
@@ -60,9 +39,12 @@ class UploadFileControl extends UploadControl
      */
     public function setValue($value): self
     {
-        if ($this->htmlHref) {
-            $this->htmlHref->href = ($value ? $this->path . $value : null);
-            $this->htmlHref->setText($value);
+        if ($this->path && $value) {
+            $href = Html::el('a', ['href' => ($value ? $this->path . $value : null)]);
+            $href->setText($value);
+            $div = Html::el('div');
+            $div->addHtml($href);
+            $this->setOption('description', $div);
         }
         return $this;
     }

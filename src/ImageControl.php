@@ -27,8 +27,8 @@ class ImageControl extends BaseControl
     public function __construct($caption = null)
     {
         parent::__construct($caption);
-
-        $this->control = Html::el('img', ['src' => null]);
+        // set manual omitted
+        $this->setOmitted(true);
     }
 
 
@@ -69,7 +69,9 @@ class ImageControl extends BaseControl
      */
     public function setValue($value): self
     {
-        $this->control->src = Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height);
+        if ($this->path && $value) {
+            $this->control = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height)]);
+        }
         return $this;
     }
 }

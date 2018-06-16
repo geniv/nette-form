@@ -57,14 +57,17 @@ $form->addColor($name, $label = null);
 
 $form->addImg($name, $label = null)
     ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null);
+    ->setImageSize(string $height = null, string $width = null)
+    ->setValue($value);
 
 $form->addUploadImage($name, $label = null, $multiple = false)
     ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null);
+    ->setImageSize(string $height = null, string $width = null)
+    ->setValue($value);
 
 $form->addUploadFile($name, $label = null, $multiple = false)
-    ->setPath(string $path);
+    ->setPath(string $path)
+    ->setValue($value);
 
 $form->addHref($name, $label = null)
     ->setPrefix(string $prefix)
@@ -87,5 +90,5 @@ usage for addUploadImage:
 ```latte
 {label cover_image /}
 {input cover_image, class=>"form-control"}
- {$form['cover_image']->getOption('description')}
+{$form['cover_image']->getOption('description')}
 ```

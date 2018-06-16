@@ -78,7 +78,7 @@ class HrefInput extends BaseControl
      */
     public function setTarget(string $target): self
     {
-        $this->label->target = $target;
+        $this->control->target = $target;
         return $this;
     }
 
