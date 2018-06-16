@@ -48,14 +48,14 @@ class ImageControl extends BaseControl
     /**
      * Set image size.
      *
-     * @param string|null $height
      * @param string|null $width
+     * @param string|null $height
      * @return ImageControl
      */
-    public function setImageSize(string $height = null, string $width = null): self
+    public function setImageSize(string $width = null, string $height = null): self
     {
-        $this->height = $height;
         $this->width = $width;
+        $this->height = $height;
         return $this;
     }
 

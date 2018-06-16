@@ -14,8 +14,23 @@ use Nette\Utils\Html;
  */
 class UploadFileControl extends UploadControl
 {
+    /** @var Html */
+    private $html;
     /** @var string */
     private $path;
+
+
+    /**
+     * UploadFileControl constructor.
+     *
+     * @param null $label
+     * @param bool $multiple
+     */
+    public function __construct($label = null, bool $multiple = false)
+    {
+        parent::__construct($label, $multiple);
+        $this->html = Html::el('a');
+    }
 
 
     /**
@@ -32,6 +47,19 @@ class UploadFileControl extends UploadControl
 
 
     /**
+     * Set target.
+     *
+     * @param string $target
+     * @return UploadFileControl
+     */
+    public function setTarget(string $target): self
+    {
+        $this->html->target = $target;
+        return $this;
+    }
+
+
+    /**
      * Set value.
      *
      * @param $value
@@ -40,10 +68,10 @@ class UploadFileControl extends UploadControl
     public function setValue($value): self
     {
         if ($this->path && $value) {
-            $href = Html::el('a', ['href' => ($value ? $this->path . $value : null)]);
-            $href->setText($value);
+            $this->html->href = ($value ? $this->path . $value : null);
+            $this->html->setText($value);
             $div = Html::el('div');
-            $div->addHtml($href);
+            $div->addHtml($this->html);
             $this->setOption('description', $div);
         }
         return $this;
