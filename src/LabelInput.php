@@ -23,8 +23,9 @@ class LabelInput extends BaseControl
     public function __construct(string $caption = null)
     {
         parent::__construct($caption);
-
         $this->control = Html::el('span');
+        // set manual omitted
+        $this->setOmitted(true);
     }
 
 
