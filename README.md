@@ -91,5 +91,5 @@ usage for addUploadImage:
 ```latte
 {label cover_image /}
 {input cover_image, class=>"form-control"}
-{$form['cover_image']->getOption('description')}
+{$form['cover_image']->getOption('content')}
 ```

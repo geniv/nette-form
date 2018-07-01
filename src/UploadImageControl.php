@@ -60,7 +60,7 @@ class UploadImageControl extends UploadControl
             $img = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height)]);
             $div = Html::el('div');
             $div->addHtml($img);
-            $this->setOption('description', $div);
+            $this->setOption('content', $div);
         }
         return $this;
     }

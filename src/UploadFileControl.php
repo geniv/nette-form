@@ -72,7 +72,7 @@ class UploadFileControl extends UploadControl
             $this->html->setText($value);
             $div = Html::el('div');
             $div->addHtml($this->html);
-            $this->setOption('description', $div);
+            $this->setOption('content', $div);
         }
         return $this;
     }
