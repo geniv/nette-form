@@ -61,14 +61,16 @@ $form->addRange($name, $label = null)
 
 $form->addColor($name, $label = null);
 
+// use Thumbnail class
 $form->addImg($name, $label = null)
     ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null)
+    ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
     ->setValue($value);
 
+// use Thumbnail class
 $form->addUploadImage($name, $label = null, $multiple = false)
     ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null)
+    ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
     ->setValue($value);
 
 $form->addUploadFile($name, $label = null, $multiple = false)
