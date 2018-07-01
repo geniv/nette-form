@@ -87,7 +87,7 @@ $form->addLabel($name, $label = null)
     ->setText(string $text);
 ```
 
-usage for addUploadImage:
+usage for `addUploadImage`, `addUploadFile`, in default Nette renderer does not function:
 ```latte
 {label cover_image /}
 {input cover_image, class=>"form-control"}

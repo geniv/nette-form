@@ -70,9 +70,7 @@ class UploadFileControl extends UploadControl
         if ($this->path && $value) {
             $this->html->href = ($value ? $this->path . $value : null);
             $this->html->setText($value);
-            $div = Html::el('div');
-            $div->addHtml($this->html);
-            $this->setOption('content', $div);
+            $this->setOption('content', $this->html);
         }
         return $this;
     }
