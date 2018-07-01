@@ -17,7 +17,7 @@ class UploadFileControl extends UploadControl
     /** @var Html */
     private $html;
     /** @var string */
-    private $path;
+    private $relativePath, $absolutePath;
 
 
     /**
@@ -36,12 +36,14 @@ class UploadFileControl extends UploadControl
     /**
      * Set path.
      *
-     * @param string $path
+     * @param string $relativePath
+     * @param string $absolutePath
      * @return UploadFileControl
      */
-    public function setPath(string $path): self
+    public function setPath(string $relativePath, string $absolutePath): self
     {
-        $this->path = $path;
+        $this->relativePath = $relativePath;
+        $this->absolutePath = $absolutePath;
         return $this;
     }
 
@@ -67,8 +69,8 @@ class UploadFileControl extends UploadControl
      */
     public function setValue($value): self
     {
-        if ($this->path && $value && file_exists($this->path . $value) && is_file($this->path . $value)) {
-            $this->html->href = ($value ? $this->path . $value : null);
+        if ($this->absolutePath && $this->relativePath && $value && file_exists($this->absolutePath . $value) && is_file($this->absolutePath . $value)) {
+            $this->html->href = ($value ? $this->relativePath . $value : null);
             $this->html->setText($value);
             $this->setOption('content', $this->html);
         }

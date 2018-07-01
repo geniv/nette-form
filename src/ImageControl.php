@@ -77,7 +77,7 @@ class ImageControl extends BaseControl
      */
     public function setValue($value): self
     {
-        if ($this->path && $value && file_exists($this->path . $value) && is_file($this->path . $value)) {
+        if ($this->path && $value && Thumbnail::isSrcPathExists($this->path . $value)) {
             $this->control = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
         }
         return $this;
