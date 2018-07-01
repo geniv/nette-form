@@ -52,7 +52,12 @@ $form->addWeek($name, $label = null);
 $form->addMonth($name, $label = null);
 $form->addSearch($name, $label = null);
 $form->addNumber($name, $label = null);
-$form->addRange($name, $label = null);
+
+$form->addRange($name, $label = null)
+    ->setStep($step)
+    ->setMin($min)
+    ->setMax($max);
+
 $form->addColor($name, $label = null);
 
 $form->addImg($name, $label = null)
