@@ -52,17 +52,25 @@ $form->addWeek($name, $label = null);
 $form->addMonth($name, $label = null);
 $form->addSearch($name, $label = null);
 $form->addNumber($name, $label = null);
-$form->addRange($name, $label = null);
-$form->addColor($name, $label = null);
 
-$form->addImg($name, $label = null)
-    ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null)
+$form->addRange($name, $label = null)
+    ->setStep($step)
+    ->setMin($min)
+    ->setMax($max)
     ->setValue($value);
 
+$form->addColor($name, $label = null);
+
+// use Thumbnail class
+$form->addImg($name, $label = null)
+    ->setPath(string $path)
+    ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
+    ->setValue($value);
+
+// use Thumbnail class
 $form->addUploadImage($name, $label = null, $multiple = false)
     ->setPath(string $path)
-    ->setImageSize(string $height = null, string $width = null)
+    ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
     ->setValue($value);
 
 $form->addUploadFile($name, $label = null, $multiple = false)

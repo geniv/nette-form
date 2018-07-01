@@ -67,7 +67,7 @@ class UploadFileControl extends UploadControl
      */
     public function setValue($value): self
     {
-        if ($this->path && $value) {
+        if ($this->path && $value && file_exists($this->path . $value) && is_file($this->path . $value)) {
             $this->html->href = ($value ? $this->path . $value : null);
             $this->html->setText($value);
             $this->setOption('content', $this->html);
