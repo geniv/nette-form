@@ -56,7 +56,8 @@ $form->addNumber($name, $label = null);
 $form->addRange($name, $label = null)
     ->setStep($step)
     ->setMin($min)
-    ->setMax($max);
+    ->setMax($max)
+    ->setValue($value);
 
 $form->addColor($name, $label = null);
 
