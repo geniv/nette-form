@@ -80,7 +80,7 @@ class HrefLabelInput extends BaseControl
      */
     public function setConfirm(string $text): self
     {
-        $this->label->onClick('return confirm("' . $text . '");');
+        $this->label->onclick('return confirm(\'' . $text . '\');');
         return $this;
     }
 }

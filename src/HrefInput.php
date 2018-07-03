@@ -91,7 +91,7 @@ class HrefInput extends BaseControl
      */
     public function setConfirm(string $text): self
     {
-        $this->control->onClick('return confirm("' . $text . '");');
+        $this->control->onclick('return confirm(\'' . $text . '\');');
         return $this;
     }
 
