@@ -65,6 +65,7 @@ class UploadImageControl extends UploadControl
     public function setValue($value): self
     {
         if ($this->path && $value && Thumbnail::isSrcPathExists($this->path . $value)) {
+            $this->setOption('path', $this->path . $value);
             $img = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
             $this->setOption('content', $img);
         }

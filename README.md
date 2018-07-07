@@ -99,5 +99,7 @@ usage for `addUploadImage`, `addUploadFile`, in default Nette renderer does not 
 ```latte
 {label cover_image /}
 {input cover_image, class=>"form-control"}
+
 {$form['cover_image']->getOption('content')}
+{$form['cover_image']->getOption('path')}
 ```
