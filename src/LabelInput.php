@@ -19,13 +19,16 @@ class LabelInput extends BaseControl
      * LabelInput constructor.
      *
      * @param string|null $caption
+     * @param string      $element
      */
-    public function __construct(string $caption = null)
+    public function __construct(string $caption = null, $element = 'div')
     {
         parent::__construct($caption);
-        $this->control = Html::el('span');
+        $this->control = Html::el($element);
         // set manual omitted
         $this->setOmitted(true);
+        // internal set type
+        $this->setOption('type', 'label');
     }
 
 
