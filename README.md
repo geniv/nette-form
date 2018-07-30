@@ -91,7 +91,7 @@ $form->addHrefLabel($name, $label = null)
     ->setTarget(string $target)
     ->setConfirm(string $text);
 
-$form->addLabel($name, $label = null)
+$form->addLabel($name, $label = null, $element = 'div')
     ->setText(string $text);
 ```
 
