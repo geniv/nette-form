@@ -16,7 +16,7 @@ use Thumbnail\Thumbnail;
 class UploadImageControl extends UploadControl
 {
     /** @var string */
-    private $path, $height, $width;
+    private $path, $baseUrl, $height, $width;
     /** @var array */
     private $flags;
     /** @var int */
@@ -26,12 +26,14 @@ class UploadImageControl extends UploadControl
     /**
      * Set path.
      *
-     * @param string $path
+     * @param string      $path
+     * @param string|null $baseUrl
      * @return UploadImageControl
      */
-    public function setPath(string $path): self
+    public function setPath(string $path, string $baseUrl = null): self
     {
         $this->path = $path;
+        $this->baseUrl = $baseUrl;
         return $this;
     }
 
@@ -66,7 +68,7 @@ class UploadImageControl extends UploadControl
     {
         if ($this->path && $value && Thumbnail::isSrcPathExists($this->path . $value)) {
             $this->setOption('path', $this->path . $value);
-            $img = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
+            $img = Html::el('img', ['src' => $this->baseUrl . Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
             $this->setOption('content', $img);
         }
         return $this;

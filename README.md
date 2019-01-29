@@ -63,13 +63,13 @@ $form->addColor($name, $label = null);
 
 // use Thumbnail class
 $form->addImg($name, $label = null)
-    ->setPath(string $path)
+    ->setPath(string $path, string $baseUrl = null)
     ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
     ->setValue($value);
 
 // use Thumbnail class
 $form->addUploadImage($name, $label = null, $multiple = false)
-    ->setPath(string $path)
+    ->setPath(string $path, string $baseUrl = null)
     ->setImageSize(string $width = null, string $height = null, array $flags = [], int $quality = null)
     ->setValue($value);
 

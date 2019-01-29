@@ -16,7 +16,7 @@ use Thumbnail\Thumbnail;
 class ImageControl extends BaseControl
 {
     /** @var string */
-    private $path, $height, $width;
+    private $path, $baseUrl, $height, $width;
     /** @var array */
     private $flags;
     /** @var int */
@@ -39,12 +39,14 @@ class ImageControl extends BaseControl
     /**
      * Set path.
      *
-     * @param string $path
+     * @param string      $path
+     * @param string|null $baseUrl
      * @return ImageControl
      */
-    public function setPath(string $path): self
+    public function setPath(string $path, string $baseUrl = null): self
     {
         $this->path = $path;
+        $this->baseUrl = $baseUrl;
         return $this;
     }
 
@@ -78,7 +80,7 @@ class ImageControl extends BaseControl
     public function setValue($value): self
     {
         if ($this->path && $value && Thumbnail::isSrcPathExists($this->path . $value)) {
-            $this->control = Html::el('img', ['src' => Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
+            $this->control = Html::el('img', ['src' => $this->baseUrl . Thumbnail::getSrcPath($this->path, $value, $this->width, $this->height, $this->flags, $this->quality)]);
         }
         return $this;
     }
