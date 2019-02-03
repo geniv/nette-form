@@ -17,10 +17,10 @@ use Form\TimeInput;
 use Form\UploadFileControl;
 use Form\UploadImageControl;
 use Form\WeekInput;
+use Nette\Application\UI\Form;
 use Nette\DI\CompilerExtension;
 use Nette\Forms\Container;
 use Nette\PhpGenerator\ClassType;
-use Nette\Utils\ObjectMixin;
 
 
 /**
@@ -49,64 +49,64 @@ class Extension extends CompilerExtension
      */
     public static function register()
     {
-        ObjectMixin::setExtensionMethod(Container::class, 'addDate', function (Container $container, $name, $label = null) {
-            return $container[$name] = new DateInput($label);
+        Container::extensionMethod('addDate', function (Form $form, $name, $label = null) {
+            return $form[$name] = new DateInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addTime', function (Container $container, $name, $label = null) {
-            return $container[$name] = new TimeInput($label);
+        Container::extensionMethod('addTime', function (Form $form, $name, $label = null) {
+            return $form[$name] = new TimeInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addDateTime', function (Container $container, $name, $label = null) {
-            return $container[$name] = new DateTimeInput($label);
+        Container::extensionMethod('addDateTime', function (Form $form, $name, $label = null) {
+            return $form[$name] = new DateTimeInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addWeek', function (Container $container, $name, $label = null) {
-            return $container[$name] = new WeekInput($label);
+        Container::extensionMethod('addWeek', function (Form $form, $name, $label = null) {
+            return $form[$name] = new WeekInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addMonth', function (Container $container, $name, $label = null) {
-            return $container[$name] = new MonthInput($label);
+        Container::extensionMethod('addMonth', function (Form $form, $name, $label = null) {
+            return $form[$name] = new MonthInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addSearch', function (Container $container, $name, $label = null) {
-            return $container[$name] = new SearchInput($label);
+        Container::extensionMethod('addSearch', function (Form $form, $name, $label = null) {
+            return $form[$name] = new SearchInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addNumber', function (Container $container, $name, $label = null) {
-            return $container[$name] = new NumberInput($label);
+        Container::extensionMethod('addNumber', function (Form $form, $name, $label = null) {
+            return $form[$name] = new NumberInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addRange', function (Container $container, $name, $label = null) {
-            return $container[$name] = new RangeInput($label);
+        Container::extensionMethod('addRange', function (Form $form, $name, $label = null) {
+            return $form[$name] = new RangeInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addColor', function (Container $container, $name, $label = null) {
-            return $container[$name] = new ColorInput($label);
+        Container::extensionMethod('addColor', function (Form $form, $name, $label = null) {
+            return $form[$name] = new ColorInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addImg', function (Container $container, $name, $label = null) {
-            return $container[$name] = new ImageControl($label);
+        Container::extensionMethod('addImg', function (Form $form, $name, $label = null) {
+            return $form[$name] = new ImageControl($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addUploadImage', function (Container $container, $name, $label = null, $multiple = false) {
-            return $container[$name] = new UploadImageControl($label, $multiple);
+        Container::extensionMethod('addUploadImage', function (Form $form, $name, $label = null, $multiple = false) {
+            return $form[$name] = new UploadImageControl($label, $multiple);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addUploadFile', function (Container $container, $name, $label = null, $multiple = false) {
-            return $container[$name] = new UploadFileControl($label, $multiple);
+        Container::extensionMethod('addUploadFile', function (Form $form, $name, $label = null, $multiple = false) {
+            return $form[$name] = new UploadFileControl($label, $multiple);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addHref', function (Container $container, $name, $label = null) {
-            return $container[$name] = new HrefInput($label);
+        Container::extensionMethod('addHref', function (Form $form, $name, $label = null) {
+            return $form[$name] = new HrefInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addHrefLabel', function (Container $container, $name, $label = null) {
-            return $container[$name] = new HrefLabelInput($label);
+        Container::extensionMethod('addHrefLabel', function (Form $form, $name, $label = null) {
+            return $form[$name] = new HrefLabelInput($label);
         });
 
-        ObjectMixin::setExtensionMethod(Container::class, 'addLabel', function (Container $container, $name, $label = null) {
-            return $container[$name] = new LabelInput($label);
+        Container::extensionMethod('addLabel', function (Form $form, $name, $label = null) {
+            return $form[$name] = new LabelInput($label);
         });
     }
 }
