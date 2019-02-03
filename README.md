@@ -24,14 +24,17 @@ $ composer require geniv/nette-form
 ```
 or
 ```json
-"geniv/nette-form": ">=1.0.0"
+"geniv/nette-form": ">=1.0"
 ```
 
 require:
 ```json
-"php": ">=7.0.0",
-"nette/nette": ">=2.4.0",
-"geniv/nette-thumbnail": ">=1.0.0"
+"php": ">=7.0",
+"nette/application": ">=2.4",
+"nette/di": ">=2.4",
+"nette/forms": ">=2.4",
+"nette/php-generator": ">=2.4",
+"geniv/nette-thumbnail": ">=1.0"
 ```
 
 Include in application
