@@ -24,7 +24,7 @@ $ composer require geniv/nette-form
 ```
 or
 ```json
-"geniv/nette-form": ">=1.0"
+"geniv/nette-form": "^1.1"
 ```
 
 require:
@@ -33,6 +33,7 @@ require:
 "nette/application": ">=2.4",
 "nette/di": ">=2.4",
 "nette/forms": ">=2.4",
+"nette/utils": ">=2.4",
 "nette/php-generator": ">=2.4",
 "geniv/nette-thumbnail": ">=1.0"
 ```

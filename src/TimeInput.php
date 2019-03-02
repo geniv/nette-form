@@ -2,9 +2,10 @@
 
 namespace Form;
 
-use DateTime;
+use DateInterval;
 use Nette\Forms\Controls\TextBase;
 use Nette\Forms\Form;
+use Nette\Utils\DateTime;
 
 
 /**
@@ -45,10 +46,10 @@ class TimeInput extends TextBase
      */
     public function setValue($value): self
     {
-        if ($value instanceof DateTime) {
-            $this->control->value = $value->format('H:i');
+        if ($value instanceof DateInterval) {
+            $this->control->value = $value->format('%H:%I');
         } else {
-            $this->control->value = $value;
+            $this->control->value = DateTime::from($value)->format('H:i');
         }
         return $this;
     }
