@@ -17,7 +17,6 @@ use Form\TimeInput;
 use Form\UploadFileControl;
 use Form\UploadImageControl;
 use Form\WeekInput;
-use Nette\Application\UI\Form;
 use Nette\DI\CompilerExtension;
 use Nette\Forms\Container;
 use Nette\PhpGenerator\ClassType;
@@ -49,63 +48,63 @@ class Extension extends CompilerExtension
      */
     public static function register()
     {
-        Container::extensionMethod('addDate', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addDate', function (Container $form, $name, $label = null) {
             return $form[$name] = new DateInput($label);
         });
 
-        Container::extensionMethod('addTime', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addTime', function (Container $form, $name, $label = null) {
             return $form[$name] = new TimeInput($label);
         });
 
-        Container::extensionMethod('addDateTime', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addDateTime', function (Container $form, $name, $label = null) {
             return $form[$name] = new DateTimeInput($label);
         });
 
-        Container::extensionMethod('addWeek', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addWeek', function (Container $form, $name, $label = null) {
             return $form[$name] = new WeekInput($label);
         });
 
-        Container::extensionMethod('addMonth', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addMonth', function (Container $form, $name, $label = null) {
             return $form[$name] = new MonthInput($label);
         });
 
-        Container::extensionMethod('addSearch', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addSearch', function (Container $form, $name, $label = null) {
             return $form[$name] = new SearchInput($label);
         });
 
-        Container::extensionMethod('addNumber', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addNumber', function (Container $form, $name, $label = null) {
             return $form[$name] = new NumberInput($label);
         });
 
-        Container::extensionMethod('addRange', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addRange', function (Container $form, $name, $label = null) {
             return $form[$name] = new RangeInput($label);
         });
 
-        Container::extensionMethod('addColor', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addColor', function (Container $form, $name, $label = null) {
             return $form[$name] = new ColorInput($label);
         });
 
-        Container::extensionMethod('addImg', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addImg', function (Container $form, $name, $label = null) {
             return $form[$name] = new ImageControl($label);
         });
 
-        Container::extensionMethod('addUploadImage', function (Form $form, $name, $label = null, $multiple = false) {
+        Container::extensionMethod('addUploadImage', function (Container $form, $name, $label = null, $multiple = false) {
             return $form[$name] = new UploadImageControl($label, $multiple);
         });
 
-        Container::extensionMethod('addUploadFile', function (Form $form, $name, $label = null, $multiple = false) {
+        Container::extensionMethod('addUploadFile', function (Container $form, $name, $label = null, $multiple = false) {
             return $form[$name] = new UploadFileControl($label, $multiple);
         });
 
-        Container::extensionMethod('addHref', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addHref', function (Container $form, $name, $label = null) {
             return $form[$name] = new HrefInput($label);
         });
 
-        Container::extensionMethod('addHrefLabel', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addHrefLabel', function (Container $form, $name, $label = null) {
             return $form[$name] = new HrefLabelInput($label);
         });
 
-        Container::extensionMethod('addLabel', function (Form $form, $name, $label = null) {
+        Container::extensionMethod('addLabel', function (Container $form, $name, $label = null) {
             return $form[$name] = new LabelInput($label);
         });
     }
