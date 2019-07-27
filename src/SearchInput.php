@@ -3,7 +3,6 @@
 namespace Form;
 
 use Nette\Forms\Controls\TextBase;
-use Nette\Forms\Form;
 
 
 /**
@@ -28,15 +27,6 @@ class SearchInput extends TextBase
 
 
     /**
-     * Load http data.
-     */
-    public function loadHttpData()
-    {
-        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
-    }
-
-
-    /**
      * Set value.
      *
      * @param $value
@@ -44,7 +34,8 @@ class SearchInput extends TextBase
      */
     public function setValue($value): self
     {
-        $this->control->value = $value;
+        $this->value = $value;
+        $this->control->value = $value; // return to input
         return $this;
     }
 }

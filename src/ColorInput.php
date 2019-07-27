@@ -3,7 +3,6 @@
 namespace Form;
 
 use Nette\Forms\Controls\TextBase;
-use Nette\Forms\Form;
 
 
 /**
@@ -28,15 +27,6 @@ class ColorInput extends TextBase
 
 
     /**
-     * Load http data.
-     */
-    public function loadHttpData()
-    {
-        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
-    }
-
-
-    /**
      * Set value.
      *
      * @param $value
@@ -44,6 +34,7 @@ class ColorInput extends TextBase
      */
     public function setValue($value): self
     {
+        $this->value = $value;
         $this->control->value = $value;
         return $this;
     }
