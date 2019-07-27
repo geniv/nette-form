@@ -4,7 +4,6 @@ namespace Form;
 
 use DateInterval;
 use Nette\Forms\Controls\TextBase;
-use Nette\Forms\Form;
 use Nette\Utils\DateTime;
 
 
@@ -30,15 +29,6 @@ class DateInput extends TextBase
 
 
     /**
-     * Load http data.
-     */
-    public function loadHttpData()
-    {
-        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
-    }
-
-
-    /**
      * Set value.
      *
      * @param $value
@@ -46,6 +36,7 @@ class DateInput extends TextBase
      */
     public function setValue($value): self
     {
+        $this->value = $value;
         if ($value instanceof DateInterval) {
             $this->control->value = $value->format('%Y-%M-%D');
         } else {

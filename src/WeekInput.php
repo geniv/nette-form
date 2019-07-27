@@ -4,7 +4,6 @@ namespace Form;
 
 use DateTime;
 use Nette\Forms\Controls\TextBase;
-use Nette\Forms\Form;
 
 
 /**
@@ -29,15 +28,6 @@ class WeekInput extends TextBase
 
 
     /**
-     * Load http data.
-     */
-    public function loadHttpData()
-    {
-        $this->value = $this->getHttpData(Form::DATA_TEXT) ?: null;
-    }
-
-
-    /**
      * Set value.
      *
      * @param $value
@@ -45,6 +35,7 @@ class WeekInput extends TextBase
      */
     public function setValue($value): self
     {
+        $this->value = $value;
         if ($value instanceof DateTime) {
             $this->control->value = $value->format('Y-\WW');
         } else {
