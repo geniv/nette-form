@@ -56,6 +56,7 @@ class UploadFileControl extends UploadControl
      */
     public function setTarget(string $target): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->html->target = $target;
         return $this;
     }
@@ -72,6 +73,7 @@ class UploadFileControl extends UploadControl
         if ($this->absolutePath && $this->relativePath && $value && file_exists($this->absolutePath . $value) && is_file($this->absolutePath . $value)) {
             $path = $this->relativePath . $value;
             $this->setOption('path', $path);
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->html->href = ($value ? $path : null);
             $this->html->setText($value);
             $this->setOption('content', $this->html);

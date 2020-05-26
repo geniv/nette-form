@@ -24,6 +24,7 @@ class DateTimeInput extends TextBase
     public function __construct($caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'datetime-local';
     }
 
@@ -38,8 +39,10 @@ class DateTimeInput extends TextBase
     {
         $this->value = $value;
         if ($value instanceof DateInterval) {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value->format('%Y-%M-%D\T%H:%I');
         } else {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = DateTime::from($value)->format('Y-m-d\TH:i');
         }
         return $this;

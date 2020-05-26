@@ -22,6 +22,7 @@ class RangeInput extends TextBase
     public function __construct($caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'range';
     }
 
@@ -35,6 +36,7 @@ class RangeInput extends TextBase
     public function setValue($value): self
     {
         $this->value = $value;
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->value = $value; // return to input
         return $this;
     }
@@ -48,6 +50,7 @@ class RangeInput extends TextBase
      */
     public function setStep($step): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->step = $step;
         return $this;
     }
@@ -61,6 +64,7 @@ class RangeInput extends TextBase
      */
     public function setMin($min): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->min = $min;
         return $this;
     }
@@ -74,6 +78,7 @@ class RangeInput extends TextBase
      */
     public function setMax($max): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->max = $max;
         return $this;
     }
