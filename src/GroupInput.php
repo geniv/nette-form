@@ -7,16 +7,16 @@ use Nette\Utils\Html;
 
 
 /**
- * Class LabelInput
+ * Class GroupInput
  *
  * @author  geniv
  * @package Form
  */
-class LabelInput extends BaseControl
+class GroupInput extends BaseControl
 {
 
     /**
-     * LabelInput constructor.
+     * GroupInput constructor.
      *
      * @param string|null $caption
      * @param string      $element
@@ -28,7 +28,35 @@ class LabelInput extends BaseControl
         // set manual omitted
         $this->setOmitted(true);
         // internal set type
-        $this->setOption('type', 'label');
+        $this->setOption('type', 'group');
+    }
+
+
+    /**
+     * Begin.
+     *
+     * @param string $id
+     * @return $this
+     */
+    public function begin(string $id): self
+    {
+        $this->setOption('id', $id);
+        $this->setOption('begin', true);
+        $this->setOption('end', false);
+        return $this;
+    }
+
+
+    /**
+     * End.
+     *
+     * @return $this
+     */
+    public function end(): self
+    {
+        $this->setOption('begin', false);
+        $this->setOption('end', true);
+        return $this;
     }
 
 
@@ -36,7 +64,7 @@ class LabelInput extends BaseControl
      * Set text.
      *
      * @param string $text
-     * @return LabelInput
+     * @return GroupInput
      */
     public function setText(string $text): self
     {
@@ -49,7 +77,7 @@ class LabelInput extends BaseControl
      * Set value.
      *
      * @param $value
-     * @return LabelInput
+     * @return GroupInput
      */
     public function setValue($value): self
     {

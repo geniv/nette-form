@@ -5,6 +5,7 @@ namespace Form\Bridges\Nette;
 use Form\ColorInput;
 use Form\DateInput;
 use Form\DateTimeInput;
+use Form\GroupInput;
 use Form\HrefInput;
 use Form\HrefLabelInput;
 use Form\ImageControl;
@@ -104,8 +105,12 @@ class Extension extends CompilerExtension
             return $form[$name] = new HrefLabelInput($label);
         });
 
-        Container::extensionMethod('addLabel', function (Container $form, $name, $label = null) {
-            return $form[$name] = new LabelInput($label);
+        Container::extensionMethod('addLabel', function (Container $form, $name, $label = null, $element = 'div') {
+            return $form[$name] = new LabelInput($label, $element);
+        });
+
+        Container::extensionMethod('setGroup', function (Container $form, $name, $label = null, $element = 'div') {
+            return $form[$name] = new GroupInput($label, $element);
         });
     }
 }

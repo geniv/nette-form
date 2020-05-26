@@ -19,11 +19,12 @@ class TimeInput extends TextBase
     /**
      * TimeInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'time';
     }
 
@@ -38,8 +39,10 @@ class TimeInput extends TextBase
     {
         $this->value = $value;
         if ($value instanceof DateInterval) {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value->format('%H:%I');
         } else {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = DateTime::from($value)->format('H:i');
         }
         return $this;

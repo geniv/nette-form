@@ -19,11 +19,12 @@ class DateInput extends TextBase
     /**
      * DateInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'date';
     }
 
@@ -38,8 +39,10 @@ class DateInput extends TextBase
     {
         $this->value = $value;
         if ($value instanceof DateInterval) {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value->format('%Y-%M-%D');
         } else {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = DateTime::from($value)->format('Y-m-d');
         }
         return $this;

@@ -17,11 +17,12 @@ class SearchInput extends TextBase
     /**
      * SearchInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'search';
     }
 
@@ -35,6 +36,7 @@ class SearchInput extends TextBase
     public function setValue($value): self
     {
         $this->value = $value;
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->value = $value; // return to input
         return $this;
     }

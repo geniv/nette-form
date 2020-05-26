@@ -54,6 +54,7 @@ class HrefLabelInput extends BaseControl
      */
     public function setHref(string $href): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->label->href = $href;
         return $this;
     }
@@ -67,6 +68,7 @@ class HrefLabelInput extends BaseControl
      */
     public function setTarget(string $target): self
     {
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->label->target = $target;
         return $this;
     }

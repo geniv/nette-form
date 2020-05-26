@@ -17,11 +17,12 @@ class ColorInput extends TextBase
     /**
      * ColorInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'color';
     }
 
@@ -35,6 +36,7 @@ class ColorInput extends TextBase
     public function setValue($value): self
     {
         $this->value = $value;
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->value = $value;
         return $this;
     }

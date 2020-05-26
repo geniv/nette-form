@@ -24,7 +24,7 @@ $ composer require geniv/nette-form
 ```
 or
 ```json
-"geniv/nette-form": "^1.1"
+"geniv/nette-form": "^1.2"
 ```
 
 require:
@@ -97,6 +97,10 @@ $form->addHrefLabel($name, $label = null)
 
 $form->addLabel($name, $label = null, $element = 'div')
     ->setText(string $text);
+
+$form->setGroup($name, $label = null, $element = 'div')
+    ->begin(string $id)
+    ->end();
 ```
 
 usage for `addUploadImage`, `addUploadFile`, in default Nette renderer does not function:

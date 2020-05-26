@@ -18,11 +18,12 @@ class WeekInput extends TextBase
     /**
      * WeekInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'week';
     }
 
@@ -37,8 +38,10 @@ class WeekInput extends TextBase
     {
         $this->value = $value;
         if ($value instanceof DateTime) {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value->format('Y-\WW');
         } else {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value;
         }
         return $this;

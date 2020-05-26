@@ -18,11 +18,12 @@ class MonthInput extends TextBase
     /**
      * MonthInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
+        /** @noinspection PhpUndefinedFieldInspection */
         $this->control->type = 'month';
     }
 
@@ -37,8 +38,10 @@ class MonthInput extends TextBase
     {
         $this->value = $value;
         if ($value instanceof DateTime) {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value->format('Y-m');
         } else {
+            /** @noinspection PhpUndefinedFieldInspection */
             $this->control->value = $value;
         }
         return $this;
