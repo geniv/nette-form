@@ -23,10 +23,10 @@ class UploadFileControl extends UploadControl
     /**
      * UploadFileControl constructor.
      *
-     * @param null $label
-     * @param bool $multiple
+     * @param string|null $label
+     * @param bool        $multiple
      */
-    public function __construct($label = null, bool $multiple = false)
+    public function __construct(string $label = null, bool $multiple = false)
     {
         parent::__construct($label, $multiple);
         $this->html = Html::el('a');

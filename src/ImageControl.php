@@ -26,9 +26,9 @@ class ImageControl extends BaseControl
     /**
      * ImageControl constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
         // set manual omitted

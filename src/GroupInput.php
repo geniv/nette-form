@@ -16,12 +16,12 @@ class GroupInput extends BaseControl
 {
 
     /**
-     * LabelInput constructor.
+     * GroupInput constructor.
      *
      * @param string|null $caption
      * @param string      $element
      */
-    public function __construct(string $caption = null, $element = 'div')
+    public function __construct(string $caption = null, string $element = 'div')
     {
         parent::__construct($caption);
         $this->control = Html::el($element);
@@ -42,6 +42,7 @@ class GroupInput extends BaseControl
     {
         $this->setOption('id', $id);
         $this->setOption('begin', true);
+        $this->setOption('end', false);
         return $this;
     }
 
@@ -53,6 +54,7 @@ class GroupInput extends BaseControl
      */
     public function end(): self
     {
+        $this->setOption('begin', false);
         $this->setOption('end', true);
         return $this;
     }

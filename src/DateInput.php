@@ -19,9 +19,9 @@ class DateInput extends TextBase
     /**
      * DateInput constructor.
      *
-     * @param null $caption
+     * @param string|null $caption
      */
-    public function __construct($caption = null)
+    public function __construct(string $caption = null)
     {
         parent::__construct($caption);
         /** @noinspection PhpUndefinedFieldInspection */

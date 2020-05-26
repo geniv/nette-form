@@ -21,7 +21,7 @@ class LabelInput extends BaseControl
      * @param string|null $caption
      * @param string      $element
      */
-    public function __construct(string $caption = null, $element = 'div')
+    public function __construct(string $caption = null, string $element = 'div')
     {
         parent::__construct($caption);
         $this->control = Html::el($element);

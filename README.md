@@ -97,6 +97,10 @@ $form->addHrefLabel($name, $label = null)
 
 $form->addLabel($name, $label = null, $element = 'div')
     ->setText(string $text);
+
+$form->setGroup($name, $label = null, $element = 'div')
+    ->begin(string $id)
+    ->end();
 ```
 
 usage for `addUploadImage`, `addUploadFile`, in default Nette renderer does not function:
