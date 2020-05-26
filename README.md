@@ -24,7 +24,7 @@ $ composer require geniv/nette-form
 ```
 or
 ```json
-"geniv/nette-form": "^1.2"
+"geniv/nette-form": "^1.1"
 ```
 
 require:
